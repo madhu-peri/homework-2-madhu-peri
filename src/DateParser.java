@@ -5,6 +5,7 @@
  */
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.*;
 
 public class DateParser {
     public static int getMonthAsInt(String monthString) {
@@ -55,21 +56,16 @@ public class DateParser {
         return monthInt;
     }
 
-    public static void main(String[] args) {
-        /*Scanner sc = new Scanner(System.in);
-        String date = "";
-         if(date.equals("-1"))
-        {
-            System.out.println("Please enter the date in proper format:");
-            date = sc.nextLine();
-        }*/
+    public static void main(String[] args) throws IOException {
 
-        Scanner scnr = new Scanner(System.in);
+        Scanner scnr;
+        FileInputStream file = new FileInputStream("src\\inputDates.txt");
+        scnr = new Scanner(file);
         ArrayList<String> dates = new ArrayList<String>();
         String d;
         int i;
         while (true) {
-            System.out.println("Please enter a date: ");
+            //System.out.println("Please enter a date: ");
             d = scnr.nextLine();
             if (d.equals("-1")) {
                 break;
