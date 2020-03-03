@@ -1,10 +1,10 @@
 /**
  * Starter code for homework 2 Problem 1 - CIS 2348
- * Name:
- * PS:
+ * Name: Madhumitha Periyasamy
+ * PS:1595200
  */
-//
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class DateParser {
     public static int getMonthAsInt(String monthString) {
@@ -56,10 +56,35 @@ public class DateParser {
     }
 
     public static void main(String[] args) {
-        Scanner scnr = new Scanner(System.in);
+        /*Scanner sc = new Scanner(System.in);
+        String date = "";
+         if(date.equals("-1"))
+        {
+            System.out.println("Please enter the date in proper format:");
+            date = sc.nextLine();
+        }*/
 
-        // TODO: Read dates from input, parse the dates to find the one
-        //       in the correct format, and output in mm/dd/yyyy format
+        Scanner scnr = new Scanner(System.in);
+        ArrayList<String> dates = new ArrayList<String>();
+        String d;
+        int i;
+        while (true) {
+            System.out.println("Please enter a date: ");
+            d = scnr.nextLine();
+            if (d.equals("-1")) {
+                break;
+            }
+            dates.add(d);
+        }
+        for (i = 0; i < dates.size(); i++) {
+            try {
+                String month = dates.get(i).substring(0, dates.get(i).indexOf(" "));
+                String day = dates.get(i).substring(dates.get(i).indexOf(" ") + 1, dates.get(i).indexOf(","));
+                String year = dates.get(i).substring(dates.get(i).indexOf(",") + 2, dates.get(i).length());
+                System.out.println(getMonthAsInt(month) + "/" + day + "/" + year);
+            } catch (Exception a) {
+            }
+        }
 
     }
 }
