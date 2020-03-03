@@ -1,0 +1,21 @@
+# Default ignored files for CIS 2348 assignments
+# User-specific stuff
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+
+*.class
+*.aux
+*.log
+*.nav
+*.snm
+*.toc
+*.out
+*.vrb
+*.gz
+*.pdf
+*.html
+out/
+*.zip
