@@ -61,6 +61,8 @@ public class DateParser {
         Scanner scnr;
         FileInputStream file = new FileInputStream("src\\inputDates.txt");
         scnr = new Scanner(file);
+        FileOutputStream output = new FileOutputStream("parsedDates.txt");
+        PrintWriter opf = new PrintWriter(output);
         ArrayList<String> dates = new ArrayList<String>();
         String d;
         int i;
@@ -77,10 +79,12 @@ public class DateParser {
                 String month = dates.get(i).substring(0, dates.get(i).indexOf(" "));
                 String day = dates.get(i).substring(dates.get(i).indexOf(" ") + 1, dates.get(i).indexOf(","));
                 String year = dates.get(i).substring(dates.get(i).indexOf(",") + 2, dates.get(i).length());
-                System.out.println(getMonthAsInt(month) + "/" + day + "/" + year);
+                opf.println(getMonthAsInt(month) + "/" + day + "/" + year);
             } catch (Exception a) {
             }
         }
 
+        scnr.close();
+        opf.close();
     }
 }
